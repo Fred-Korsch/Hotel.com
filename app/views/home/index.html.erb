@@ -1,0 +1,39 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+    <h1>Hotel.com</h1>
+    <h2>O Mais Novo Hotel da Região Serrana!</h2>
+  </div>
+</div>
+
+<div class="container">
+  <h3>Quartos alugados</h3>
+  <div class="row">
+
+      <% @rooms.each do |p| %>
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <img src="/images/1080ti.jpg" alt="GeForce 1080 ti EVGA" class="img-responsive">
+            <div class="caption">
+              <h5>Hospede: <%= p.guest %></h5>
+              <p>Quarto: <%= p.title %></p>
+              <p>Descrição: <%= p.briefing %></p>
+                <p>Nº do quarto: <%= p.number %></p>
+              <p>
+                <a href="/rooms/rent/<%= p.id %>" class="btn btn-primary" role="button">Alugar</a>
+                <%= link_to("Deletar", "/rooms/destroy/#{p.id}", method: :delete, class: 'btn btn-default') %>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>
+
+<div class="container">
+    <!-- FOOTER -->
+    <hr>
+    <footer>
+      <p>&copy; 2017 Hotel.com</p>
+    </footer>
+  </div>
